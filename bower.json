@@ -1,0 +1,21 @@
+{
+  "name": "game-map",
+  "main": "index.js",
+  "version": "1.0.0",
+  "authors": [
+    "lone112@hotmail.com"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery.nicescroll": "~3.6.0",
+    "Leaflet.label": "~0.2.1",
+    "leaflet": "~0.7.3"
+  }
+}
