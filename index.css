@@ -4,5 +4,10 @@
 }
 
 #map{
-	height: 700px;
+	height: 100%;
+}
+
+#left{
+	min-width: 300px;
+	background-color: green;
 }
