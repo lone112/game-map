@@ -1,20 +1,22 @@
-var map = L.map('map',{
-	minZoom : 0,
-    maxZoom: 5,
-	zoom: 3,
-	zoomControl :false,
-	attributionControl : false
-}).setView([0,0],2);
+var map = L.map('map', {
+    minZoom: 2,
+    maxZoom: window.map_mZoom,
+    center: window.map_center,
+    zoom: 3,
+    attributionControl: false,
+    zoomControl: false,
+    layers: allLayers
+});
 
-var mapBounds = new L.LatLngBounds(
-    map.unproject([0, 2560], 5),
-    map.unproject([7424, 0], 5));
-map.fitBounds(mapBounds);
-map.setMaxBounds(mapBounds);
+var bounds = new L.LatLngBounds(window.map_sWest, window.map_nEast);
+map.setMaxBounds(bounds);
+
 //http://res.cloudinary.com/lone112/image/upload/v1433932477/tiles/{z}/{x}/{y}.png.png
-L.tileLayer('maps/output/{z}/{x}/{y}.png', {
-		noWrap: true
-	}).addTo(map);
+L.tileLayer('maps/velen/{z}/{x}/{y}.png', {
+    tms: true,
+    bounds: bounds,
+    noWrap: true
+}).addTo(map);
 
 //L.marker([31.0456,121.399696]).bindLabel('Look revealing label!').addTo(map);
 
@@ -28,3 +30,4 @@ function onMapClick(e) {
 
 map.on('click', onMapClick);
 
+$('.ui.accordion').accordion();
