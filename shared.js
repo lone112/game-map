@@ -8,7 +8,7 @@
 		}).on('dblclick', function (e) {
 			toggleOpacity(e, mapKey);
 		}).on('click',function(e){
-			console.log(label);
+			showDetail(label);
 		});
 
 		if (isMarkerInvisible(mapKey, marker.getLatLng().lat, marker.getLatLng().lng)) {
@@ -42,6 +42,10 @@
 		}
 
 		localStorage[mapPath] = JSON.stringify(invisibleMarkers[mapPath]);		
+	};
+
+	window.showDetail = function(markId){
+		console.log(markId);
 	};
 
 	window.icons = {};
